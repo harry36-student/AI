@@ -1,0 +1,35 @@
+/** Add styles here */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #d0ceee;
+}
+header {
+    background-color: #e8efda;
+    color: #eac9c9;
+    padding: 10px;
+    text-align: center;
+}
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+}
+h1 {
+    color: #1f1e1e;
+}
+p {
+    color: #151515;
+}
+ul{
+    background-color: #e8efda;
+    color: #111111; 
+    text-align: left;
+    list-style: none;
+            padding: 0;
+            margin: 0;
+            border-radius: 9px; /* 將邊角设置為圆弧 */
+            background-color:  #e8efda;
+            overflow: hidden; /* 防止内容溢出圆角 */
+}
