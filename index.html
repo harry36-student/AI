@@ -1,111 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Static Web Page</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
-    
-</head>
-<body>
-    <header>
-        <h1>Welcome to My Static Web Page</h1>
-    </header>
-    <div class="container">
-        <h2>about me</h2>
-            <header>
-                <h1>Zhang Yongyu</h1>
-                <p>Like challenges and not afraid of difficulties</p>
-                                                  
-                <p>Educational qualifications</p>
-                    <ul>
-                            <li>Bachelor's degree: Department of Information Network Engineering, Longhua University of Science and Technology, Department of Information Management, Secondary Department (Graduated on 2024/6/1) </li>
-                            <li>Master's degree: Department of Information Engineering, National Kinmen University (currently working on it) </li>
-                        
-                    </ul>
-                </p>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>My  Personal Page</title>
+    <script src="https://unpkg.com/vue@3"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <!-- 放外部 script -->
+    <script
+      type="text/javascript"
+      async
+      src="//cdn.credly.com/assets/utilities/embed.js"
+    ></script>
+  </head>
+  <body class="bg-gray-50 text-gray-800">
+    <div id="app" class="max-w-4xl mx-auto p-6">
+      <h1 class="text-3xl font-bold text-center mb-6">Welcome to My Personal Page</h1>
 
-            </header>
-    
-            <section>
-                <h2>my skills</h2>
-                <ul>
-                    <li>Skills: TQC-Artificial Intelligence Application and Technology Certificate</li>
-                    <li>Skills: Google Cloud Data Analytics Certificate</li>
-                    <div data-iframe-width="312" data-iframe-height="312" data-share-badge-id="493f635d-f8ff-4c06-870c-1a4ce4991069" data-share-badge-host="https://www.credly.com"></div><script type="text/javascript" async src="//cdn.credly.com/assets/utilities/embed.js"></script>
-                
-                    <!-- 可以根據需要添加更多技能 -->
-                </ul>
-            
-            </section>
+      <!-- Tabs -->
+      <div class="flex space-x-4 justify-center mb-4">
+        <button
+          v-for="tab in tabs"
+          :key="tab"
+          @click="currentTab = tab"
+          :class="[
+            'px-4 py-2 rounded-lg font-semibold',
+            currentTab === tab ? 'bg-blue-500 text-white' : 'bg-gray-200'
+          ]"
+        >
+          {{ tab }}
+        </button>
+      </div>
 
-            <section>
-                <h2>University period</h2>
-            </section>
-            <section>
-                <h2>My projects (on campus)</h2>
-                    <p>learning projects<br>
-                        <ul>
-                            <li><i class="fas fa-cogs"></i> Writing operating system scheduling algorithm using C++</li>
-                            <li><i class="fas fa-laptop-code"></i> Use PHP language and Laravel architecture to create small web pages</li>
-                            <li><i class="fas fa-mobile-alt"></i> Chat messages with Google Firebase database via Android studio</li>
-                        </ul>
-                    </p>
-
-                <p>Topics<br>
-                    <ul>
-                        <li><i class="fas fa-project-icon"></i> Making AR glasses-campus tour </li>
-                    </ul>
-                </p>
-                
-            </section>
-            <section>
-                <h2>Participate in activities (off campus)</h2>
-                <p>community<br>
-                    <ul>
-                        <li><i class="fas fa-cogs"></i> Participate in Google DSC project: <br>Currently GDSC X LHU Lead (time: 2023-2024)</br></li>
-                        <li><i class="fas fa-laptop-code"></i> Participate in devfest Taipei 2023 </li>
-                        <li><i class="fas fa-mobile-alt"></i> Attend SITCON 2024 </li>
-                    </ul>
-                </p>
-                <p>Competition experience<br>
-                    <ul>
-                        <li><i class="fas fa-cogs"></i> Participated in the Asian Intelligent Robot-Obstacle Avoidance Competition and won fifth place </li>
-                        <li><i class="fas fa-cogs"></i> Participate in the Asian Intelligent Robot-Obstacle Avoidance Competition and win masterpieces </li>
-                        <li><i class="fas fa-laptop-code"></i>Participate in the Ministry of Interior’s innovative and creative application competition</li>   
-                    </ul>
-                </p>
-
-            </section>
-
-            <section>
-                <h2> Research Institute period</h2>
-                <p> project : <br>
-                    <ul>
-                        <li>Still thinking about it...</li>
-                        
-                           
-                    </ul>
-                </p>
-                    
-                <p> Project: <br>
-                     <ul>
-                        <li>Still thinking about it...</li>
-                        
-                           
-                    </ul>
-                </p>
-            </section> 
-
-
-        
-                <h2>contact method</h2>
-                    <ul>
-                        <li>Email: <a href="mailto:yuhome31@gmail.com">yuhome31@gmail.com</a></li>
-                        <li>IG:  <a href="https://www.instagram.com/yu.ha.944023?igsh=aDg1Y3BvOW5ldDNh">yu.ha.944023</a></li>
-                        <li>LinkedIn: <a href="https://www.linkedin.com/in/yuyoungzha/">yuyoungzha</a></li>
-                        <li>GitHub: <a href="https://github.com/harry36-student?tab=repositories/">harry36-student</a></li>
-                    </ul>
+      <!-- Component Views -->
+      <component :is="tabComponents[currentTab]"></component>
     </div>
-</body>
+
+    <script>
+      const About = {
+        template: `
+          <section>
+            <h2 class="text-2xl font-semibold mb-2">About Me</h2>
+            <p class="mb-2"><strong>Name:</strong> Zhang YungYu</p>
+            <p class="mb-4">
+              <strong>Motto:</strong> Like challenges and not afraid of difficulties
+            </p>
+            <h3 class="font-semibold">Education</h3>
+            <ul class="list-disc list-inside">
+              <li v-for="item in education" :key="item">{{ item }}</li>
+            </ul>
+          </section>
+        `,
+        data() {
+          return {
+            education: [
+              "Bachelor's degree: Department of Information Network Engineering, Longhua University of Science and Technology, Department of Information Management, minor Department (Graduated on 2024/6/1)",
+              "Master's degree: Department of Information Engineering, National Quemoy University (currently working on it)",
+            ],
+          };
+        },
+      };
+
+      const Skills = {
+        template: `
+          <section>
+            <h2 class="text-2xl font-semibold mb-4">Skills</h2>
+            <ul class="list-disc list-inside">
+              <li v-for="skill in skills" :key="skill">{{ skill }}</li>
+            </ul>
+            <div
+              class="mt-4"
+              data-iframe-width="312"
+              data-iframe-height="312"
+              data-share-badge-id="493f635d-f8ff-4c06-870c-1a4ce4991069"
+              data-share-badge-host="https://www.credly.com"
+            ></div>
+          </section>
+        `,
+        data() {
+          return {
+            skills: [
+              "TQC-Artificial Intelligence Application and Technology Certificate",
+              "Google Cloud Data Analytics Certificate",
+            ],
+          };
+        },
+      };
+
+      const Projects = {
+        template: `
+          <section>
+            <h2 class="text-2xl font-semibold mb-2">Projects</h2>
+            <h3 class="font-semibold mt-4">Learning Projects</h3>
+            <ul class="list-disc list-inside">
+              <li v-for="project in learning" :key="project">{{ project }}</li>
+            </ul>
+
+            <h3 class="font-semibold mt-4">Research Projects</h3>
+            <ul class="list-disc list-inside">
+              <li v-for="project in research" :key="project">{{ project }}</li>
+            </ul>
+          </section>
+        `,
+        data() {
+          return {
+            learning: [
+              "Writing operating system scheduling algorithm using C++",
+              "Use PHP language and Laravel architecture to create small web pages",
+              "Chat messages with Google Firebase database via Android studio",
+            ],
+            research: [
+              "Using Python to write a program to detect the number of people in the classroom",
+            ],
+          };
+        },
+      };
+
+      const Activities = {
+        template: `
+          <section>
+            <h2 class="text-2xl font-semibold mb-2">Activities & Competitions</h2>
+            <h3 class="font-semibold mt-4">Community</h3>
+            <ul class="list-disc list-inside">
+              <li v-for="item in community" :key="item">{{ item }}</li>
+            </ul>
+            <h3 class="font-semibold mt-4">Competitions</h3>
+            <ul class="list-disc list-inside">
+              <li v-for="item in competitions" :key="item">{{ item }}</li>
+            </ul>
+          </section>
+        `,
+        data() {
+          return {
+            community: [
+              "Participate in GoogleDSC project: Currently GDSC X LHU Lead (2023–2024)",
+              "Participate in devfest Taipei 2023",
+              "Attend SITCON 2024",
+            ],
+            competitions: [
+              "Participated in the Asian Intelligent Robot-Obstacle Avoidance Competition and won fifth place",
+              "Participate in the Asian Intelligent Robot-Obstacle Avoidance Competition and win masterpieces",
+              "Participate in the Ministry of Interior’s innovative and creative application competition",
+            ],
+          };
+        },
+      };
+
+      const Contact = {
+        template: `
+          <section>
+            <h2 class="text-2xl font-semibold mb-2">Contact</h2>
+            <ul class="list-disc list-inside">
+              <li>
+                Email:
+                <a :href="'mailto:' + contact.email" class="text-blue-600">{{
+                  contact.email
+                }}</a>
+              </li>
+              <li>
+                Instagram:
+                <a
+                  :href="contact.instagram"
+                  class="text-blue-600"
+                  target="_blank"
+                  >yu.ha.944023</a
+                >
+              </li>
+              <li>
+                LinkedIn:
+                <a
+                  :href="contact.linkedin"
+                  class="text-blue-600"
+                  target="_blank"
+                  >yuyoungzha</a
+                >
+              </li>
+              <li>
+                GitHub:
+                <a
+                  :href="contact.github"
+                  class="text-blue-600"
+                  target="_blank"
+                  >harry36-student</a
+                >
+              </li>
+            </ul>
+          </section>
+        `,
+        data() {
+          return {
+            contact: {
+              email: "yuhome31@gmail.com",
+              instagram:
+                "https://www.instagram.com/yu.ha.944023?igsh=aDg1Y3BvOW5ldDNh",
+              linkedin: "https://www.linkedin.com/in/yuyoungzha/",
+              github:
+                "https://github.com/harry36-student?tab=repositories/",
+            },
+          };
+        },
+      };
+
+      Vue.createApp({
+        data() {
+          return {
+            currentTab: "About",
+            tabs: ["About", "Skills", "Projects", "Activities", "Contact"],
+            tabComponents: {
+              About,
+              Skills,
+              Projects,
+              Activities,
+              Contact,
+            },
+          };
+        },
+        components: { About, Skills, Projects, Activities, Contact },
+      }).mount("#app");
+    </script>
+  </body>
 </html>
