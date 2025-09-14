@@ -45,7 +45,7 @@
         template: `
           <section>
             <h2 class="text-2xl font-semibold mb-2">About Me</h2>
-            <p class="mb-2"><strong>Name:</strong> Zhang YungYu</p>
+            <p class="mb-2"><strong>Name:</strong> Chang Yung-Yu</p>
             <p class="mb-4">
               <strong>Motto:</strong> Like challenges and not afraid of difficulties
             </p>
@@ -77,8 +77,8 @@
               data-iframe-width="312"
               data-iframe-height="312"
               data-share-badge-id="493f635d-f8ff-4c06-870c-1a4ce4991069"
-              data-share-badge-host="https://www.credly.com"
-            ></div>
+              data-share-badge-host="https://www.credly.com/earner/earned/badge/493f635d-f8ff-4c06-870c-1a4ce4991069"
+            </div>
           </section>
         `,
         data() {
@@ -86,6 +86,7 @@
             skills: [
               "TQC-Artificial Intelligence Application and Technology Certificate",
               "Google Cloud Data Analytics Certificate",
+              "Gemini Certified Educator"
             ],
           };
         },
@@ -188,6 +189,15 @@
                   >harry36-student</a
                 >
               </li>
+              <li>
+                Blog:
+                <a
+                  :href="contact.Blog"
+                  class="text-blue-600"
+                  target="_blank"
+                  >sift</a
+                >
+              </li>
             </ul>
           </section>
         `,
@@ -200,6 +210,8 @@
               linkedin: "https://www.linkedin.com/in/yuyoungzha/",
               github:
                 "https://github.com/harry36-student?tab=repositories/",
+              Blog: 
+                "https://github.com/harry36-student/sift",
             },
           };
         },
