@@ -65,32 +65,31 @@
         },
       };
 
-      const Skills = {
-        template: `
-          <section>
-            <h2 class="text-2xl font-semibold mb-4">Skills</h2>
-            <ul class="list-disc list-inside">
-              <li v-for="skill in skills" :key="skill">{{ skill }}</li>
-            </ul>
-            <div
-              class="mt-4"
-              data-iframe-width="312"
-              data-iframe-height="312"
-              data-share-badge-id="493f635d-f8ff-4c06-870c-1a4ce4991069"
-              data-share-badge-host="https://www.credly.com/earner/earned/badge/493f635d-f8ff-4c06-870c-1a4ce4991069"
-            </div>
-          </section>
-        `,
-        data() {
-          return {
-            skills: [
-              "TQC-Artificial Intelligence Application and Technology Certificate",
-              "Google Cloud Data Analytics Certificate",
-              "Gemini Certified Educator"
-            ],
-          };
-        },
-      };
+ const Skills = {
+  template: `
+    <h2 class="text-2xl font-semibold mb-2">Skills</h2>
+    <section style="text-align: left; margin: 20px 0;">
+      <div
+        data-iframe-width="150"
+        data-iframe-height="270"
+        data-share-badge-id="493f635d-f8ff-4c06-870c-1a4ce4991069"
+        data-share-badge-host="https://www.credly.com"
+      ></div>
+      <ul class="list-disc list-inside mt-4">
+        <li v-for="skill in skills" :key="skill">{{ skill }}</li>
+      </ul>
+    </section>
+  `,
+  data() {
+    return {
+      skills: [
+        "TQC-Artificial Intelligence Application and Technology Certificate",
+        "Google Cloud Data Analytics Certificate",
+        "Gemini Certified Educator"
+      ],
+    };
+  },
+};
 
       const Projects = {
         template: `
@@ -235,4 +234,5 @@
       }).mount("#app");
     </script>
   </body>
+
 </html>
