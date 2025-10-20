@@ -21,21 +21,20 @@
     <div id="app" class="max-w-4xl mx-auto p-6">
       <h1 class="text-3xl font-bold text-center mb-6">Welcome to My Personal Page</h1>
 
-      <!-- Tabs -->
-      <div class="flex space-x-4 justify-center mb-4">
-        <button
-          v-for="tab in tabs"
-          :key="tab"
-          @click="currentTab = tab"
-          :class="[
-            'px-4 py-2 rounded-lg font-semibold',
-            currentTab === tab ? 'bg-blue-500 text-white' : 'bg-gray-200'
-          ]"
-        >
-          {{ tab }}
-        </button>
-      </div>
-
+      <!-- Tabs (replace button list with dropdown) -->
+      
+    <div class="flex items-center justify-start mb-4">
+      <!-- icon before the dropdown -->
+      <i class="fas fa-bars text-2xl text-gray-700 mr-3" aria-hidden="true"></i>
+      <label for="tabSelect" class="sr-only">Select tab</label>
+      <select
+        id="tabSelect"
+        v-model="currentTab"
+        class="border rounded px-3 py-2 bg-white text-gray-800 w-64"
+      >
+        <option v-for="tab in tabs" :key="tab" :value="tab">{{ tab }}</option>
+        </select>
+    </div>
       <!-- Component Views -->
       <component :is="tabComponents[currentTab]"></component>
     </div>
