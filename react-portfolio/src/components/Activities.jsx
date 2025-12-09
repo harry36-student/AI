@@ -14,20 +14,38 @@ const Activities = () => {
     ];
 
     return (
-        <section>
-            <h2 className="text-2xl font-semibold mb-2">Activities & Competitions</h2>
-            <h3 className="font-semibold mt-4">Community</h3>
-            <ul className="list-disc list-inside">
-                {community.map((item, index) => (
-                    <li key={index}>{item}</li>
-                ))}
-            </ul>
-            <h3 className="font-semibold mt-4">Competitions</h3>
-            <ul className="list-disc list-inside">
-                {competitions.map((item, index) => (
-                    <li key={index}>{item}</li>
-                ))}
-            </ul>
+        <section className="space-y-8">
+            <h2 className="text-2xl font-heading font-bold text-slate-800 mb-6">Activities & Competitions</h2>
+
+            <div className="grid md:grid-cols-2 gap-6">
+                <div className="modern-card p-6">
+                    <h3 className="text-xl font-heading font-bold text-slate-700 mb-4 pb-2 border-b border-slate-100">
+                        Community
+                    </h3>
+                    <ul className="space-y-4">
+                        {community.map((item, index) => (
+                            <li key={index} className="flex gap-3 text-slate-600">
+                                <span className="text-primary mt-1">●</span>
+                                <span>{item}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+
+                <div className="modern-card p-6">
+                    <h3 className="text-xl font-heading font-bold text-slate-700 mb-4 pb-2 border-b border-slate-100">
+                        Competitions
+                    </h3>
+                    <ul className="space-y-4">
+                        {competitions.map((item, index) => (
+                            <li key={index} className="flex gap-3 text-slate-600">
+                                <span className="text-amber-500 mt-1">★</span>
+                                <span>{item}</span>
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            </div>
         </section>
     );
 };
